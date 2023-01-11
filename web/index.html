@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plonk</title>
-  <script>
-    var plonk = plonk || {};
-    var ns = plonk;
-  </script>
-</head>
-<body>
-  <div id="login-view"></div>
-  <div id="start-view"></div>
-  <div id="gameView"></div>
-  <div id="highscore-view"></div>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plonk</title>
+    <script>
+      var plonk = plonk || {};
+      var ns = plonk;
+    </script>
 
-  <script src="/views/gameView.js"></script>
-  <script src="/web/index.js"></script>
-</body>
+    <link href="/web/main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="login-view"></div>
+    <div id="start-view"></div>
+    <div id="gameContainer">
+      <div id="gameView">
+      </div>
+    </div>
+   
+    <div id="highscore-view"></div>
+    
+    <script src="/web/resourceLoader.js"></script>
+    <script src="/web/stateMachine.js"></script>
+    <script src="/web/gameObjects/gameObject.js"></script>
+  
+    <script src="/views/boardView.js"></script>
+    <script src="/web/inputHandler.js"></script>
+    <script src="/web/gameLoop.js"></script>
+    <script src="/web/appController.js"></script>
+    <script src="/web/gameController.js"></script>
+    <script src="/web/init.js"></script>
+    <script src="/web/index.js"></script>
+  </body>
 </html>

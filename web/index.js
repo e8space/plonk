@@ -4,5 +4,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 window.appStart = function(){
-  ns.gameView = new GameView();
+  ns.appState = new StateMachine(new AppController());
+  ns.appState.transition("startApp");
 }
