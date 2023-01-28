@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plonk</title>
     <script>
-      var plonk = plonk || {};
-      var ns = plonk;
+      window.plonk = window.plonk || {};
+      window.ns = window.plonk;
     </script>
 
     <link href="/web/main.css" rel="stylesheet" type="text/css">
@@ -16,22 +16,37 @@
     <div id="login-view"></div>
     <div id="start-view"></div>
     <div id="gameContainer">
-      <div id="gameView">
-      </div>
+      <div id="gameView"></div>
     </div>
-   
+    <div id="error-view"></div>
     <div id="highscore-view"></div>
-    
-    <script src="/web/resourceLoader.js"></script>
-    <script src="/web/stateMachine.js"></script>
-    <script src="/web/gameObjects/gameObject.js"></script>
-  
-    <script src="/views/boardView.js"></script>
-    <script src="/web/inputHandler.js"></script>
-    <script src="/web/gameLoop.js"></script>
+
+    <video id="background-video" autoplay loop muted  >
+      <source src="/web/resources/videos/glowingBlackHole.mp4" type="video/mp4">
+    </video>
+
+    <!-- app -->
     <script src="/web/appController.js"></script>
+    <!-- stateMachine -->
+    <script src="/web/stateMachine.js"></script>
+    <!-- resources -->
+    <script src="/web/resourceHandler.js"></script>
+    <!-- input -->
+    <script src="/web/inputHandler.js"></script>
+    <!-- game -->
     <script src="/web/gameController.js"></script>
+    <script src="/web/gameObjects/gameObjectHandler.js"></script>
+    <script src="/web/gameLoop.js"></script>
+    <!-- gameObject -->
+    <script src="/web/gameObjects/gameObject.js"></script>
+    <script src="/web/gameObjects/plonk.js"></script>
+    <script src="/web/gameObjects/lift.js"></script>
+    <!-- views -->
+    <script src="/views/board.js"></script>
+    <!-- init -->
+    <script src="/web/pubSub.js"></script>
     <script src="/web/init.js"></script>
     <script src="/web/index.js"></script>
+
   </body>
 </html>

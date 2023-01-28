@@ -1,7 +1,7 @@
 class InputHandler {
 
   constructor(){
-    this.subscribers = [];
+    this.subscribers = new Map();
   }
 
   init = ()=> {
@@ -9,12 +9,18 @@ class InputHandler {
   }
 
   keyEvent = (e)=>{
-    for (let i=0; i < this.subscribers.length; i++){
-      this.subscribers[i](e.key);
+    try {
+      this.subscribers.forEach((value)=>{
+        value(e.key);
+      })
+    } catch (e) {
+      console.error(e);
     }
   }
 
   subscribe = (callback)=>{
-    this.subscribers.push(callback);
+    const key = self.crypto.randomUUID();
+    this.subscribers.set(key, callback);
+    return key;
   }
 }

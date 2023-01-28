@@ -1,13 +1,14 @@
 class AppController{
 
   constructor(){
+    this.resourceHandler = new ResourceHandler();
     this.inputHandler = new InputHandler();
-    this.gameController = new GameController();
-    this.resourceLoader = new ResourceLoader();
+    this.gameObjectHandler = new GameObjectHandler(this.resourceHandler,this.inputHandler);
+    this.gameController = new GameController(this.inputHandler,this.gameObjectHandler);
   }
 
   startApp =()=>{
-      this.resourceLoader.loadResources.then(()=>{
+      this.resourceHandler.loadResources().then(()=>{
         this.inputHandler.init();
         this.inputHandler.subscribe(this.inputListener);
         this.gameController.init();
@@ -37,29 +38,24 @@ class AppController{
   }
 
   inputListener =(key)=> {
-    console.log(key);
+   
     switch(key){
-
       case "p" :  {
           ns.appState.transition("pauseGame");
         break;
       }
-
       case "r" :  {
         ns.appState.transition("resumeGame");
         break;
       }
-
       case "e" :  {
         ns.appState.transition("endGame");
         break;
       }
-
       case "s" :  {
         ns.appState.transition("startGame");
         break;
       }
     }
   }
-
 }
